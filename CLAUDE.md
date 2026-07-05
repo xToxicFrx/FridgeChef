@@ -1,6 +1,6 @@
 # Projekt: FridgeChef
 Tech-Stack: Next.js 14 App Router, Supabase (Auth+DB+Storage), Stripe,
-Claude API (Vision + Text), next-intl (EN/DE), Capacitor (später für iOS/Android)
+OpenAI API (GPT-4o, Vision + Text), next-intl (EN/DE), Capacitor (später für iOS/Android)
 
 ## Design-Regeln
 DESIGN_VARIANCE 8, MOTION_INTENSITY 6, VISUAL_DENSITY 4
@@ -40,7 +40,7 @@ recipes:
 - Scan-Limit (3/Tag im Free-Plan) wird NUR serverseitig geprüft, nie clientseitig
 - API-Keys nie im Client-Code, nur in Vercel Env Vars
 - Alle Nutzer-facing Strings über next-intl (keine hartcodierten Texte)
-- Bilder vor dem Senden an Claude clientseitig komprimieren
+- Bilder vor dem Senden an OpenAI clientseitig komprimieren
   (browser-image-compression, Ziel unter 1MB)
-- Zutatenerkennung und Rezeptgenerierung sind ZWEI getrennte Claude-API-Calls,
-  nicht einer
+- Zutatenerkennung und Rezeptgenerierung sind ZWEI getrennte OpenAI-API-Calls
+  (gpt-4o, response_format: { type: "json_object" }), nicht einer
